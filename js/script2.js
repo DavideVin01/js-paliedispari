@@ -10,28 +10,33 @@ console.log('Hai scelto', userChoice);
 const userNumber = parseInt(prompt('Scegli un numero da 1 a 5').trim());
 console.log('Il numero scelto è', userNumber);
 
-const computerNumber = randomNumber(1, 5);
-console.log('Il numero del computer è', computerNumber);
+// ! VALIDAZIONE
+if (userChoice === 'Pari' || userChoice === 'Dispari' && !isNaN(userNumber)) {
+    const computerNumber = randomNumber(1, 5);
+    console.log('Il numero del computer è', computerNumber);
 
-let sum = userNumber + computerNumber;
-console.log('La somma è', sum);
+    let sum = userNumber + computerNumber;
+    console.log('La somma è', sum);
 
 
-let pariODispari = evenOrOdd(sum);
+    let pariODispari = evenOrOdd(sum);
 
-function randomNumber(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+    function randomNumber(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
 
-function evenOrOdd(numero) {
-    if (numero % 2 === 0)
-        return "Pari";
-    else
-        return "Dispari";
-}
+    function evenOrOdd(numero) {
+        if (numero % 2 === 0)
+            return "Pari";
+        else
+            return "Dispari";
+    }
 
-if (userChoice == pariODispari) {
-    console.log("Hai vinto");
+    if (userChoice == pariODispari) {
+        console.log("Hai vinto");
+    } else {
+        console.log("Hai perso");
+    }
 } else {
-    console.log("Hai perso");
+    console.log('Non hai inserito Pari o Dispari.');
 }
