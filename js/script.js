@@ -37,7 +37,7 @@ function isPalindroma(userWord) {
 }
 
 if (isPalindroma(userWord)) {
-    console.log('è palindroma');
+    console.log(userWord, 'è palindroma');
 } else {
-    console.log('non è palindroma');
+    console.log(userWord, 'non è palindroma');
 }
