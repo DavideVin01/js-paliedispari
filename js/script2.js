@@ -47,24 +47,26 @@ const sendButton = document.getElementById('send-button');
 const resultElement = document.getElementById('result-display');
 const userElement = document.getElementById('user');
 const cpuElement = document.getElementById('cpu');
+const sumDisplayElement = document.getElementById('sum-display');
 
 sendButton.addEventListener('click', function () {
     const choiseElementValue = choiseElement.value.trim();
-    userElement.innerText = 'Hai scelto', choiseElementValue;
+    userElement.innerText = `Hai scelto ${choiseElementValue}`;
 
-    const userNumberValue = userNumberElement.value;
+    const userNumberValue = parseInt(userNumberElement.value);
     cpuElement.innerText = `Il numero scelto è ${userNumberValue}`;
 
     // ! VALIDAZIONE
-    if (choiseElementValue === 'Pari' || choiseElementValue === 'Dispari' && !isNaN(userNumberValue)) {
+    if (!isNaN(userNumberValue)) {
         const computerNumber = randomNumber(1, 5);
         cpuElement.innerText = `Il numero scelto dal computer è ${computerNumber}`;
 
         let sum = userNumberValue + computerNumber;
         console.log('La somma è', sum);
 
-
         let pariODispari = evenOrOdd(sum);
+
+        sumDisplayElement.innerText = `La somma dei due numeri è ${sum}`;
 
         function randomNumber(min, max) {
             return Math.floor(Math.random() * (max - min + 1)) + min;
